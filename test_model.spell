@@ -1,0 +1,23 @@
+model
+	[
+	name[ConfigDlg.TestModel]
+	
+	parameters
+		[
+		fields[Name      ;Type      ;Id;Value^ reference;Update^ method;ValueMap]
+		param [Namn      ;STRING    ; 1;name            ;NORMAL        ;]
+		param [Födelsedag;TIMESTAMP ; 2;date_birth      ;NORMAL        ;]
+		param [Massa/kg  ;DOUBLE    ; 3;mass            ;CONTINOUS     ;inf_map]
+		param [Längd     ;DOUBLE    ; 4;length          ;CONTINOUS     ;inf_map]
+		]
+	
+	valuemaps
+		[
+		inf_map[TestInfmap]
+		]
+		
+	valuemaps^ defs
+		[
+		TestInfmap["test_infmap.h"]
+		]
+	]
