@@ -27,7 +27,7 @@ Vector::Vector2d<int> ConfigDlg::Dialog::componentsMove()
 	Vector::Vector2d<float> pos{0,2};
 	
 	auto c=components.begin();
-	float y_prev;
+	float y_prev=0;
 	size_t i=0;
 	while(c!=components.end())
 		{
