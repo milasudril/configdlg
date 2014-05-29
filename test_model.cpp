@@ -15,8 +15,13 @@ ConfigDlg::TestModel::TestModel():
 	params.mass=60;
 	params.length=1.7;
 	}
+	
+const char_t* ConfigDlg::TestModel::titleGet() const
+	{
+	return STR("Persondata");
+	}
 
-Herbs::ListPacked ConfigDlg::TestModel::paramsGet()
+Herbs::ListPacked ConfigDlg::TestModel::paraminfoGet()
 	{
 	return {name_info,datebirth_info,mass_info,length_info};
 	}

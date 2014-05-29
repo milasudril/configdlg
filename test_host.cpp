@@ -14,7 +14,7 @@ ConfigDlg::TestHost::TestHost(Herbs::LogWriter& log):
 	,font_content(::Gui::Font::Element::WIDGET)
 	{
 	Dialog::init();
-	Config::Paramset ps(model.paramsGet());
+	Config::Paramset ps(model);
 	ps.uiCreate(builder);
 	
 	Dialog* win_root=builder.rootGet();

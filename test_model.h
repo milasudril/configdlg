@@ -8,15 +8,15 @@ dependency[test_model.o]
 
 #include <herbs/string/string.h>
 #include <herbs/timet/timet.h>
+#include <config/paramdescriptor.h>
 #include <config/param_valueraw_info.h>
 #include <config/param_group_info.h>
 #include <config/param_valuemapped_info.h>
 #include <mathext/valuemap.h>
-#include <herbs/listpacked/listpacked.h>
 
 namespace ConfigDlg
 	{
-	class TestModel
+	class TestModel:public Config::Paramdescriptor
 		{
 		public:
 			class InfMap:public MathExt::ValueMap<double>
@@ -51,7 +51,8 @@ namespace ConfigDlg
 			
 			TestModel();
 		
-			Herbs::ListPacked paramsGet();
+			const char_t* titleGet() const;
+			Herbs::ListPacked paraminfoGet();
 		
 		private:
 			Parameters params;
