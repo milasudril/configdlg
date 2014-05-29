@@ -12,7 +12,6 @@ ConfigDlg::TestHost::TestHost(Herbs::LogWriter& log):
 	,font_header(::Gui::Font::Element::CAPTION)
 	,font_label(::Gui::Font::Element::CAPTION_SMALL)
 	,font_content(::Gui::Font::Element::WIDGET)
-	
 	{
 	Dialog::init();
 	Config::Paramset ps(model.paramsGet());
