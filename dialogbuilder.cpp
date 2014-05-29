@@ -62,6 +62,7 @@ void ConfigDlg::DialogBuilder::create(Config::ParamGroup& group)
 		win_root->childAppend({label,ConfigDlg::Dialog::ElementType::GROUP_LABEL});
 		
 		mainwin=Dialog::create(gui_obj,Gui::Window::StyleEx_clientedge
+			|Gui::Window::StyleEx_controlparent
 			,Gui::Window::StyleVisible|Gui::Window::StyleChild,win_root);
 		mainwin->titleSet(STR("GROUP"));
 		win_root->childAppend({mainwin,Dialog::ElementType::GROUP});
@@ -108,7 +109,8 @@ void ConfigDlg::DialogBuilder::create_valmapped(Config::ParamValuemapped<T>& par
 		case Config::ParamValueInfo<T>::UpdateMethod::NORMAL:
 			{
 			auto obj=Gui::ValueInput<T>::create(gui_obj,0
-				,Gui::Window::StyleChild|Gui::Window::StyleVisible|Gui::Window::StyleBorder,win_root
+				,Gui::Window::StyleChild|Gui::Window::StyleVisible
+				|Gui::Window::StyleBorder|Gui::Window::StyleTabstop,win_root
 				,param.valueGet());
 		
 			win_root->childAppend({obj,Dialog::ElementType::CONTROL});
@@ -119,7 +121,8 @@ void ConfigDlg::DialogBuilder::create_valmapped(Config::ParamValuemapped<T>& par
 		case Config::ParamValueInfo<T>::UpdateMethod::CONTINOUS:
 			{
 			auto obj=Gui::FaderImpl<T>::create(gui_obj,0
-				,Gui::Window::StyleChild|Gui::Window::StyleVisible|Gui::Window::StyleBorder,win_root
+				,Gui::Window::StyleChild|Gui::Window::StyleVisible
+				|Gui::Window::StyleBorder|Gui::Window::StyleTabstop,win_root
 				,param.valueMapGet(),param.valueGet());
 		
 			win_root->childAppend({obj,Dialog::ElementType::CONTROL});
@@ -138,7 +141,7 @@ void ConfigDlg::DialogBuilder::create(Config::ParamValueraw<Herbs::Timestamp>& p
 	
 	auto obj=Gui::DatetimeVal::create(gui_obj,0
 		,Gui::Window::StyleChild|Gui::Window::StyleVisible
-			|Gui::Window::StyleBorder,win_root
+			|Gui::Window::StyleBorder|Gui::Window::StyleTabstop,win_root
 		,param.valueGet());
 		
 	win_root->childAppend({obj,Dialog::ElementType::CONTROL});
@@ -161,7 +164,7 @@ void ConfigDlg::DialogBuilder::create(Config::ParamValueraw<Herbs::String>& para
 	
 	auto obj=Gui::ValueInput<Herbs::String>::create(gui_obj,0
 		,Gui::Window::StyleChild|Gui::Window::StyleVisible
-			|Gui::Window::StyleBorder,win_root
+			|Gui::Window::StyleBorder|Gui::Window::StyleTabstop,win_root
 		,param.valueGet());
 		
 	win_root->childAppend({obj,Dialog::ElementType::CONTROL});

@@ -16,7 +16,7 @@ ConfigDlg::TestModel::TestModel():
 	params.length=1.7;
 	}
 
-Herbs::Array<Config::Paraminfo*> ConfigDlg::TestModel::paramsGet()
+Herbs::ListPacked ConfigDlg::TestModel::paramsGet()
 	{
-	return {&name_info,&datebirth_info,&mass_info,&length_info,nullptr};
+	return {name_info,datebirth_info,mass_info,length_info};
 	}

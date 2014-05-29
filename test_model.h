@@ -12,6 +12,7 @@ dependency[test_model.o]
 #include <config/param_group_info.h>
 #include <config/param_valuemapped_info.h>
 #include <mathext/valuemap.h>
+#include <herbs/listpacked/listpacked.h>
 
 namespace ConfigDlg
 	{
@@ -50,7 +51,7 @@ namespace ConfigDlg
 			
 			TestModel();
 		
-			Herbs::Array<Config::Paraminfo*> paramsGet();
+			Herbs::ListPacked paramsGet();
 		
 		private:
 			Parameters params;

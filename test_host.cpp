@@ -15,8 +15,7 @@ ConfigDlg::TestHost::TestHost(Herbs::LogWriter& log):
 	
 	{
 	Dialog::init();
-	auto params=model.paramsGet();
-	Config::Paramset ps(params.begin());
+	Config::Paramset ps(model.paramsGet());
 	ps.uiCreate(builder);
 	
 	Dialog* win_root=builder.rootGet();
