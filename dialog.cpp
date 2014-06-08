@@ -72,6 +72,7 @@ Vector::Vector2d<int> ConfigDlg::Dialog::componentsMove()
 	size_t i=0;
 	while(c!=components.end())
 		{
+		c->first->sizeMinimize();
 		c->first->sizeRelative(1,0);
 		c->first->moveAbsolute({-1,-1},pos);
 		auto size_res=c->first->sizeWindowGet();		
@@ -105,12 +106,13 @@ size_t ConfigDlg::Dialog::onEvent(uint32_t event_type,size_t param_0,size_t para
 			{
 			auto v=componentsMove();
 			auto v2=sizeWindowGet();
+			auto v3=sizeClientGet();
 			
 			if(ok!=nullptr) //If one button is there, so is the others
 				{
-				ok->sizeAbsolute(0,0);				
-				cancel->sizeAbsolute(0,0);
-				apply->sizeAbsolute(0,0);
+				ok->sizeMinimize();				
+				cancel->sizeMinimize();
+				apply->sizeMinimize();
 				
 				Vector::Vector2d<int> sizes[]=
 					{
@@ -130,7 +132,7 @@ size_t ConfigDlg::Dialog::onEvent(uint32_t event_type,size_t param_0,size_t para
 				cancel->sizeAbsolute(maxmax.x,maxmax.y);
 				apply->sizeAbsolute(maxmax.x,maxmax.y);
 				
-				cancel->moveAbsolute({0,-1},{0.5f*v2.x + 0.5f,float(v.y)});
+				cancel->moveAbsolute({0,-1},{0.5f*v3.x + 0.5f,float(v.y)});
 				auto p=cancel->positionAbsoluteGet();
 				ok->moveAbsolute({1+1.0/8,-1},{float(p.x),float(v.y)});
 				p+=maxmax;
