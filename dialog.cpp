@@ -106,10 +106,10 @@ size_t ConfigDlg::Dialog::onEvent(uint32_t event_type,size_t param_0,size_t para
 			{
 			auto v=componentsMove();
 			auto v2=sizeWindowGet();
-			auto v3=sizeClientGet();
 			
 			if(ok!=nullptr) //If one button is there, so is the others
 				{
+				auto v3=sizeClientGet();
 				ok->sizeMinimize();				
 				cancel->sizeMinimize();
 				apply->sizeMinimize();
